@@ -1,0 +1,43 @@
+.Navbar {
+    background-color: aqua;
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    box-shadow: gray 10px 10px 10px 10px;
+}
+
+.Navbar-tool {
+    display: flex;
+    align-items: center;
+}
+
+.Navbar-tool-logo a{
+    text-decoration: none;
+    color: honeydew;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.Spacer {
+    flex: 1;
+}
+
+.Navbar-tool-items ul {
+    list-style: none;
+    display: flex;
+}
+
+.Navbar-tool-items li {
+    padding: 0px 5px;
+    font-weight: bold;
+}
+
+.Navbar-tool-items a {
+    color: honeydew;
+    text-decoration: none;
+}
+
+.Navbar-tool-items a:hover,
+.Navbar-tool-items a:active {
+    color: indigo;
+}
