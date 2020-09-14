@@ -1,10 +1,10 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import ActualTable from './actualTable/materialTable.component';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
-import SimpleModal from './modal/modal.component';
+import TransitionsModal from './modal/modal.component';
 
 const data = [
     {
@@ -75,13 +75,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const handleClick = () => {
-    console.log("Hello World!")
-    return <SimpleModal />
-}
+
 
 export default function NestedGrid() {
+  const [modalIsOpen, setmodalIsOpen] = useState(false);
   const classes = useStyles();
+
+  const Togglemodal=() => {
+    return setmodalIsOpen(!modalIsOpen);
+}
+
+const handleClose = () => {
+  setmodalIsOpen(false);
+};
 
   function FormRow() {
     return (
@@ -107,7 +113,8 @@ export default function NestedGrid() {
           <div className={classes.wholeBody}>
     <div className={classes.columnNames}>
     <div style={{padding: '20px 70px 50px 50px'}}>
-        <AddCircleIcon color='primary' fontSize="large" onClick={handleClick}/>
+        <AddCircleIcon color='primary' fontSize="large" onClick={Togglemodal}/>
+        <TransitionsModal open={modalIsOpen} handleClose={handleClose}/>
     </div>
     <div style={{padding: '250px 20px 0px 20px'}}>
         <h3>Bed Rooms</h3>

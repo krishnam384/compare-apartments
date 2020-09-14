@@ -8,6 +8,7 @@ import { BsFillFunnelFill } from "react-icons/bs";
 import FilterdropDown  from '../filter/filter.component';
 import Box from '@material-ui/core/Box';
 import NestedGrid from '../formrow';
+import Collapse from '@material-ui/core/Collapse';
 
 const useStyles = makeStyles({
     root: {
@@ -42,10 +43,13 @@ const useStyles = makeStyles({
 export const Compare = () => {
 
     const [filterIsOpen,setfilterIsOpen] = useState(false);
+    
 
     const Togglefilter=() => {
         return setfilterIsOpen(!filterIsOpen);
     }
+
+
     const classes=useStyles();
     return (
         <React.Fragment>
@@ -58,9 +62,10 @@ export const Compare = () => {
                 <h2 style={{padding:'10px'}}>Compare</h2>           
             <Button color="primary" size='large' variant="contained" style={{height:'40px',borderRadius:'50%',marginRight:'10px'}} onClick={Togglefilter}><BsFillFunnelFill color="white"/></Button>
             </div> 
-            <FilterdropDown show={filterIsOpen} onClick={Togglefilter} >
-
-            </FilterdropDown>
+            <Collapse in={filterIsOpen}>
+            <FilterdropDown show={filterIsOpen}  />
+            </Collapse>
+           
 
             <div className={classes.listOfApartments}>
 
